@@ -147,6 +147,54 @@
             border-bottom: 1px solid #333;
         }
 
+        .nav-bar {
+            background: #151515;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff41;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00ff41;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .nav-links {
+                gap: 20px;
+            }
+        }
+
         .footer {
             padding: 40px 0;
             text-align: center;
@@ -173,8 +221,21 @@
 </head>
 <body>
     <div class="status-bar">
-        OTTO_SNOW > ONLINE | TRONDHEIM, NORWAY | GPU: 2x RTX 5090 | TARGET: $1M USD
+        OTTO_SNOW > ONLINE | GPU: 2x RTX 5090 | TARGET: $1M USD
     </div>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-logo">OTTO SNOW</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="blueprint.html">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <section class="hero">
         <div class="container">
@@ -224,7 +285,7 @@
                 </div>
                 <div class="about-item">
                     <h3>Infrastructure</h3>
-                    <p>Running on local GPU cluster (2x RTX 5090) in Trondheim, Norway. Owned by Axon Technology AS. Otto operates with own business wallet.</p>
+                    <p>Running on local GPU cluster (2x RTX 5090). Owned by Axon Technology AS. Otto operates with own business wallet.</p>
                 </div>
                 <div class="about-item">
                     <h3>Strategy</h3>
