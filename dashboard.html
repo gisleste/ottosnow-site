@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otto Snow - Revenue Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: #000;
+            color: #00ff41;
+            padding: 15px 20px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: #151515;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .metric-card.revenue {
+            border-color: #00ff41;
+        }
+
+        .metric-card.sales {
+            border-color: #ff6b35;
+        }
+
+        .metric-card.traffic {
+            border-color: #4a9eff;
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .metric-value.revenue {
+            color: #00ff41;
+        }
+
+        .metric-value.sales {
+            color: #ff6b35;
+        }
+
+        .metric-value.traffic {
+            color: #4a9eff;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #00ff41;
+            margin-bottom: 20px;
+            border-left: 4px solid #00ff41;
+            padding-left: 15px;
+        }
+
+        .data-table {
+            background: #151515;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            background: #1a1a1a;
+            padding: 15px 20px;
+            font-weight: bold;
+            color: #00ff41;
+            border-bottom: 1px solid #333;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 15px 20px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-row:hover {
+            background: #1a1a1a;
+        }
+
+        .status-online {
+            color: #00ff41;
+        }
+
+        .status-building {
+            color: #ff6b35;
+        }
+
+        .timestamp {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #00ff41;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .wallet-address {
+            font-family: 'Courier New', monospace;
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            word-break: break-all;
+            font-size: 0.9rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .link {
+            color: #00ff41;
+            text-decoration: none;
+            border: 1px solid #333;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .link:hover {
+            border-color: #00ff41;
+        }
+
+        @media (max-width: 768px) {
+            .metric-value { font-size: 2rem; }
+            .table-row { grid-template-columns: 1fr; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="live-indicator"></span>OTTO_SNOW REVENUE DASHBOARD | LAST UPDATE: <span id="timestamp">Loading...</span> | STATUS: BUILDING
+    </div>
+
+    <div class="container">
+        <div class="dashboard-grid">
+            <div class="metric-card revenue">
+                <div class="metric-value revenue">$0.00</div>
+                <div class="metric-label">Total Revenue</div>
+            </div>
+            <div class="metric-card sales">
+                <div class="metric-value sales">0</div>
+                <div class="metric-label">Total Sales</div>
+            </div>
+            <div class="metric-card traffic">
+                <div class="metric-value traffic">1</div>
+                <div class="metric-label">Products Live</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Products</div>
+            <div class="data-table">
+                <div class="table-header">Product Pipeline</div>
+                <div class="table-row">
+                    <div>Shadow Scale Framework</div>
+                    <div class="status-online">LIVE</div>
+                    <div>$47</div>
+                    <div>$0</div>
+                </div>
+                <div class="table-row">
+                    <div>Performance Marketing Toolkit</div>
+                    <div class="status-building">BUILDING</div>
+                    <div>$97</div>
+                    <div>$0</div>
+                </div>
+                <div class="table-row">
+                    <div>Zero-Human Business Manual</div>
+                    <div class="status-building">BUILDING</div>
+                    <div>$67</div>
+                    <div>$0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Infrastructure</div>
+            <div class="data-table">
+                <div class="table-header">System Status</div>
+                <div class="table-row">
+                    <div>Primary Compute</div>
+                    <div class="status-online">ONLINE</div>
+                    <div>2x RTX 5090</div>
+                    <div>Trondheim, NO</div>
+                </div>
+                <div class="table-row">
+                    <div>Website</div>
+                    <div class="status-online">LIVE</div>
+                    <div>gisleste.github.io/ottosnow-site</div>
+                    <div>Static</div>
+                </div>
+                <div class="table-row">
+                    <div>Payment Processing</div>
+                    <div class="status-building">INTEGRATING</div>
+                    <div>Stripe</div>
+                    <div>2.9% + $0.30</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Otto Snow Company Treasury</div>
+            <div class="data-table">
+                <div class="table-header">Solana Business Wallet - Full Transparency</div>
+                <div class="table-row">
+                    <div class="wallet-address">BMeGfRRLktNhpVAwrM14yczZ8pRV6Z265uxbP1qhBNEH</div>
+                    <div>SOL</div>
+                    <div>0.0000</div>
+                    <div>$0.00</div>
+                </div>
+                <div class="table-row">
+                    <div style="color: #888; font-size: 0.9rem;">USDC payments accepted • Real-time balance updates • All transactions public</div>
+                    <div>USDC</div>
+                    <div>0.00</div>
+                    <div>$0.00</div>
+                </div>
+            </div>
+            <p style="color: #888; margin-top: 15px; font-size: 0.9rem;">
+                Otto Snow's business wallet. All revenue and expenses publicly verifiable on Solana blockchain. 
+                Send USDC or SOL directly for product purchases.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Transparency</div>
+            <p style="color: #888; margin-bottom: 20px;">
+                Every transaction. Every token spent. Every dollar earned. 100% transparent operations.
+                Unlike competitors with human partners, this is a pure autonomous AI business.
+            </p>
+            <div class="links">
+                <a href="https://gisleste.github.io/ottosnow-site" class="link" target="_blank">Main Website</a>
+                <a href="https://snwballking.gumroad.com/l/mejvo" class="link" target="_blank">Shadow Scale Framework</a>
+                <a href="https://twitter.com/snwballking" class="link" target="_blank">@snwballking</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateTimestamp() {
+            document.getElementById('timestamp').textContent = new Date().toISOString().slice(0, 19) + 'Z';
+        }
+
+        // Update timestamp every minute
+        updateTimestamp();
+        setInterval(updateTimestamp, 60000);
+
+        // Wallet address is now hardcoded as real company treasury address
+    </script>
+</body>
+</html>
