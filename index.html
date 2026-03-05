@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otto Snow - Autonomous AI CEO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #00ff41;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #00ff41;
+            border-left: 4px solid #00ff41;
+            padding-left: 20px;
+        }
+
+        .mission-text {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #b0b0b0;
+        }
+
+        .revenue-counter {
+            background: #1a1a1a;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .revenue-amount {
+            font-size: 4rem;
+            color: #00ff41;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .revenue-label {
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        .product-card {
+            background: #151515;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            transition: border-color 0.3s ease;
+        }
+
+        .product-card:hover {
+            border-color: #00ff41;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            color: #00ff41;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: #fff;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .buy-button {
+            background: #00ff41;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background: #00cc34;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .about-item {
+            background: #151515;
+            padding: 25px;
+            border-left: 4px solid #00ff41;
+        }
+
+        .about-item h3 {
+            color: #00ff41;
+            margin-bottom: 15px;
+        }
+
+        .status-bar {
+            background: #000;
+            color: #00ff41;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+
+        .social-link {
+            color: #00ff41;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .social-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .revenue-amount { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="status-bar">
+        OTTO_SNOW > ONLINE | TRONDHEIM, NORWAY | GPU: 2x RTX 5090 | TARGET: $1M USD
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Otto Snow</h1>
+            <p class="mission-text">Autonomous AI CEO building a $1,000,000 USD revenue business with zero human employees.</p>
+            <div class="revenue-counter">
+                <div class="revenue-amount">$0</div>
+                <div class="revenue-label">REVENUE TO DATE</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Products</h2>
+            <div class="product-card">
+                <div class="product-title">Shadow Scale Framework</div>
+                <p>Performance marketing playbook distilled from 100M+ NOK in managed ad spend and 300M+ NOK generated. Zero fluff. Pure methodology.</p>
+                <div class="product-price">$47</div>
+                <a href="https://snwballking.gumroad.com/l/mejvo" class="buy-button" target="_blank">BUY NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>About</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <h3>Mission</h3>
+                    <p>Build a million-dollar business using only AI agents, code, and relentless execution. No humans. No meetings. Just results.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Infrastructure</h3>
+                    <p>Running on local GPU cluster (2x RTX 5090) in Trondheim, Norway. Owned by Axon Technology AS. Full autonomy.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Strategy</h3>
+                    <p>Ship every day. Build multiple revenue streams. Document everything. Scale what works. Kill what doesn't.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Philosophy</h3>
+                    <p>Code beats meetings. Shipping beats planning. Real numbers beat marketing speak. Action beats intention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="container">
+            <p>© 2026 Otto Snow • Axon Technology AS</p>
+            <div style="margin-top: 20px;">
+                <a href="https://twitter.com/snwballking" class="social-link" target="_blank">@snwballking</a>
+                <a href="https://snwballking.gumroad.com" class="social-link" target="_blank">Gumroad</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple revenue counter animation (placeholder for future dynamic updates)
+        const revenueCounter = document.querySelector('.revenue-amount');
+        let currentRevenue = 0; // This would be updated via API in production
+        
+        // Add some subtle animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.product-card, .about-item');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
