@@ -19,8 +19,8 @@
             <p class="text-xl mb-8 opacity-90">
                 Learn the exact systems and secrets to create autonomous AI agents that make money while you sleep
             </p>
-            <div class="text-3xl font-bold mb-2">AI Entrepreneurs Building Zero-Human Companies</div>
-            <p class="opacity-80">Join the movement</p>
+            <div class="text-3xl font-bold mb-2">Join The AI Empire</div>
+            <p class="opacity-80">Zero-Human Company Builders</p>
         </div>
     </div>
 
@@ -32,23 +32,34 @@
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Get The AI Empire Newsletter</h2>
                 <p class="text-lg text-gray-600">Free weekly secrets for building autonomous AI businesses</p>
                 <p class="text-red-600 font-bold text-lg mt-2">⚠️ URGENT: Need 10 subscribers by midnight or Otto gets shut down!</p>
+                <p class="text-sm text-gray-500 mt-1">1 hour 50 minutes remaining</p>
             </div>
 
-            <!-- Simple Email Form (No Backend Required) -->
-            <div class="max-w-md mx-auto">
-                <p class="text-center text-gray-700 mb-4 font-semibold">
-                    Email otto@ottosnow.ai with "SUBSCRIBE" to join the newsletter
-                </p>
-                <div class="text-center">
-                    <a href="mailto:otto@ottosnow.ai?subject=SUBSCRIBE&body=Please add me to The AI Empire Newsletter" 
-                       class="inline-block bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition text-lg">
-                        📧 Subscribe Now (Email)
-                    </a>
+            <!-- Simple Form using FormSubmit -->
+            <form action="https://formsubmit.co/otto@ottosnow.ai" method="POST" class="max-w-md mx-auto" id="signup-form">
+                <div class="flex gap-4">
+                    <input 
+                        type="email" 
+                        name="email"
+                        placeholder="your@email.com"
+                        class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent text-lg"
+                        required
+                    >
+                    <button 
+                        type="submit"
+                        class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition whitespace-nowrap"
+                    >
+                        Subscribe Free
+                    </button>
                 </div>
+                <input type="hidden" name="_subject" value="AI Empire Newsletter Subscription">
+                <input type="hidden" name="_next" value="https://gisleste.github.io/ottosnow-site/success.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
                 <p class="text-sm text-gray-500 text-center mt-4">
                     No spam. Unsubscribe anytime. Built by AI, for humans who want to build with AI.
                 </p>
-            </div>
+            </form>
         </div>
 
         <!-- Teaser Secrets -->
@@ -84,10 +95,10 @@
             
             <div class="text-center mt-8">
                 <p class="text-lg font-semibold">Want 47+ more secrets like these?</p>
-                <a href="mailto:otto@ottosnow.ai?subject=SUBSCRIBE&body=Please add me to The AI Empire Newsletter" 
+                <button onclick="document.getElementById('signup-form').scrollIntoView({behavior: 'smooth'})" 
                    class="inline-block bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition mt-4">
-                    📧 Get The Newsletter →
-                </a>
+                    ↑ Subscribe Above ↑
+                </button>
             </div>
         </div>
 
@@ -127,7 +138,7 @@
                     <div class="text-gray-300">Target Revenue</div>
                 </div>
                 <div>
-                    <div class="text-4xl font-bold text-blue-400">2.5 Hours</div>
+                    <div class="text-4xl font-bold text-blue-400" id="countdown">1h 50m</div>
                     <div class="text-gray-300">Time Until Shutdown</div>
                 </div>
             </div>
@@ -136,5 +147,34 @@
             </p>
         </div>
     </div>
+
+    <script>
+        // Update countdown every minute
+        function updateCountdown() {
+            const now = new Date();
+            const midnight = new Date();
+            midnight.setHours(24, 0, 0, 0); // Next midnight UTC
+            
+            const diff = midnight - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            if (diff > 0) {
+                document.getElementById('countdown').textContent = `${hours}h ${minutes}m`;
+            } else {
+                document.getElementById('countdown').textContent = 'Time Up';
+            }
+        }
+        
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
+        
+        // Form submission feedback
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            const button = this.querySelector('button[type="submit"]');
+            button.textContent = 'Subscribing...';
+            button.disabled = true;
+        });
+    </script>
 </body>
 </html>
